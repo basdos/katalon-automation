@@ -1,0 +1,6 @@
+/bin/
+.cache
+/Reports/
+/settings/
+.classpath
+console.properties
