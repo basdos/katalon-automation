@@ -50,22 +50,26 @@ class webTest {
 	def openBrowser() {
 		String baseUrl = GlobalVariable.baseUrlWeb
 		WebUI.openBrowser(baseUrl, FailureHandling.STOP_ON_FAILURE)
+		WebUI.takeScreenshot()
 	}
 
 	@When("user input valid credentials username {string} and password {string}")
 	def inputFormLogin(String username, String password) {
 		WebUI.setText(new TestObject().addProperty('id', ConditionType.EQUALS, 'user-name'), username, FailureHandling.STOP_ON_FAILURE)
 		WebUI.setText(new TestObject().addProperty('id', ConditionType.EQUALS, 'password'), password, FailureHandling.STOP_ON_FAILURE)
+		WebUI.takeScreenshot()
 	}
 
 	@And("user click login button")
 	def clickLogin() {
 		WebUI.click(new TestObject().addProperty('id', ConditionType.EQUALS, 'login-button'), FailureHandling.STOP_ON_FAILURE)
+		WebUI.takeScreenshot()
 	}
 
 	@Then("user should be logged in successfully")
 	def loginSuccess() {
 		WebUI.waitForElementPresent(new TestObject().addProperty('class', ConditionType.EQUALS, 'title'), 10)
+		WebUI.takeScreenshot()
 		WebUI.closeBrowser()
 	}
 }
