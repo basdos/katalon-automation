@@ -86,5 +86,6 @@ class apiTest {
 		WS.verifyElementPropertyValue(response, 'firstName', 'Emily')
 		WS.verifyElementPropertyValue(response, 'lastName', 'Johnson')
 		KeywordUtil.logInfo("Access Token Login : " + responseBody.accessToken)
+		
 	}
 }
